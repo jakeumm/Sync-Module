@@ -18,7 +18,7 @@ Create an empty directory for the backups, for example on a network share.
 
 ### 2. Update the config
 
-Edit `Sync-Config.ps1` and set `$BackupDir` to the directory you just created:
+Edit `config.ps1` and set `$BackupDir` to the directory you just created:
 
 ```powershell
 $BackupDir = "\\server\share\sync"
@@ -33,7 +33,7 @@ $BackupDir = "\\server\share\sync"
 This script:
 
 1. Creates the folder structure in `$BackupDir`.
-2. Copies `Sync-Module.psm1` and `Sync-Config.ps1` to `Documents\PowerShell\Modules\Sync-Module\`.
+2. Copies `Sync-Module.psm1` and `config.ps1` to `Documents\PowerShell\Modules\Sync-Module\`.
 
 ### 4. Import the module
 
@@ -57,7 +57,7 @@ This fills the backup directory so the `Sync-*` commands have something to resto
 
 | Command | Description |
 | --- | --- |
-| `Backup-Edge` / `Sync-Edge` | Copy only the allowlisted files from the Default Edge profile: `Bookmarks`, `Bookmarks.bak`, `Preferences`, `Secure Preferences`, `Web Data`. Edit `EdgeFiles` / `EdgeProfile` in `Sync-Config.ps1` to change this. Never deletes files at the destination. Closes Edge first. |
+| `Backup-Edge` / `Sync-Edge` | Copy only the allowlisted files from the Default Edge profile: `Bookmarks`, `Bookmarks.bak`, `Preferences`, `Secure Preferences`, `Web Data`. Edit `EdgeFiles` / `EdgeProfile` in `config.ps1` to change this. Never deletes files at the destination. Closes Edge first. |
 | `Backup-Modules` / `Sync-Modules` | Copy user-installed PowerShell modules. `Sync-Modules` doesn't delete local modules that aren't in the backup. |
 | `Backup-PSProfile` / `Sync-PSProfile` | Copy the PowerShell profile. `Backup-PSProfile` archives the previous backup to `powershell\archive\profile\` with a timestamp. |
 | `Backup-SSH` / `Sync-SSH` | Copy the whole `.ssh` directory. |

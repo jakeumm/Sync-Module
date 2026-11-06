@@ -1,8 +1,8 @@
-. (Join-Path $PSScriptRoot 'Sync-Config.ps1')
+. (Join-Path $PSScriptRoot 'config.ps1')
 
 # Sync-Module: back up personal settings (Edge, PowerShell modules/profile, SSH) to $Config.BackupDir
 # and restore them on another machine. Backup-* copies local -> backup, Sync-* copies backup -> local.
-# Paths are set in Sync-Config.ps1. Run 'Get-Command -Module Sync-Module' to list commands.
+# Paths are set in config.ps1. Run 'Get-Command -Module Sync-Module' to list commands.
 
 # Edge Functions
 # Copies only the allowlisted files (Config.EdgeFiles) in the Edge profile folder. Never deletes at the destination.
@@ -13,7 +13,7 @@ function Copy-EdgeProfileFiles {
 
     .DESCRIPTION
     Helper used by Backup-Edge and Sync-Edge. Force-closes Edge, then uses robocopy to copy only the
-    files listed in $Config.EdgeFiles (Sync-Config.ps1) from Source to Destination. Warns about
+    files listed in $Config.EdgeFiles (config.ps1) from Source to Destination. Warns about
     allowlisted files missing at the source. Never deletes files at the destination.
 
     .PARAMETER Source

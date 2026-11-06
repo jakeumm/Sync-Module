@@ -1,4 +1,4 @@
-$BackupDir = "E:\temp\Test\"
+$BackupDir = "C:\Users\jakem\Projects\Sync-Module\backup\"
 
 # PowerShell 7 and Windows PowerShell 5.1 use different user module folders
 $ModulesFolder = if ($PSVersionTable.PSEdition -eq 'Core') { 'PowerShell\Modules' } else { 'WindowsPowerShell\Modules' }

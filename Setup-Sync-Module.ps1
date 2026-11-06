@@ -1,4 +1,4 @@
-. (Join-Path $PSScriptRoot 'Sync-Config.ps1')
+. (Join-Path $PSScriptRoot 'config.ps1')
 
 $BackupDir = $script:Config.BackupDir
 
@@ -25,8 +25,7 @@ foreach ($Folder in $BackupFolders) {
 # Install the module for the current user
 $ModuleDir = Join-Path $script:Config.ModulesLocal 'Sync-Module'
 New-Item $ModuleDir -ItemType Directory -Force | Out-Null
-Copy-Item (Join-Path $PSScriptRoot 'Sync-Module.psm1'), (Join-Path $PSScriptRoot 'Sync-Config.ps1') $ModuleDir -Force
+Copy-Item (Join-Path $PSScriptRoot 'Sync-Module.psm1'), (Join-Path $PSScriptRoot 'config.ps1') $ModuleDir -Force
 Write-Host "Installed Sync-Module to $ModuleDir" -ForegroundColor Green
 Write-Host "Run 'Import-Module Sync-Module' to load it" -ForegroundColor Yellow
 Write-Host "Then run 'Backup-All' to create the initial backup (recommended)" -ForegroundColor Yellow
-
